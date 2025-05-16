@@ -14,13 +14,13 @@ class TestScholarshipEligibility(unittest.TestCase):
         self.assertFalse(is_eligible_for_scholarship(3.8, 15000))
 
     def test_low_gpa(self):
-        self.assertFalse(is_eligible_for_scholarship(3.5, 20000))
+        self.assertTrue(is_eligible_for_scholarship(3.5, 20000))
 
     def test_high_income(self):
         self.assertTrue(is_eligible_for_scholarship(3.5, 20000))
 
     def test_low_gpa_high_income(self):
-        self.assertTrue(is_eligible_for_scholarship(3.3, 20000))
+        self.assertFalse(is_eligible_for_scholarship(3.3, 20000))
 
     def test_exact_threshold(self):
         self.assertTrue(is_eligible_for_scholarship(3.5, 20000))
