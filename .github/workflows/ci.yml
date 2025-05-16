@@ -1,5 +1,4 @@
-.github/workflows
-name: Scholarship Unit test CI
+name: Scholarship Unit testCI
 on: [push, pull_request]
 jobs:
 test:
