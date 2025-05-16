@@ -29,5 +29,6 @@ class TestScholarshipEligibility(unittest.TestCase):
         self.assertFalse(is_eligible_for_scholarship("Invalid GPA"))
 
     def test_negative_income(self):
-        self.assertFalse\
-            (is_eligible_for_scholarship("Income cannot be negative"))
+         result = is_eligible_for_scholarship("Income cannot be negative")
+         self.assertFalse(result)
+
