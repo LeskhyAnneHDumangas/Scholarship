@@ -1,22 +1,29 @@
-name: Scholarship Unit testCI
+name: Scholarship Unit Tests CI  # Optional workflow name
+
 on: [push, pull_request]
+
 jobs:
-test:
-runs-on: ubuntu-latest
-steps:
--name: Checkout code
-uses: actions(checkout @v3
+  test:
+    runs-on: ubuntu-latest
 
--name: Set up Python
-uses: actions/setup_python @v4
-with:
-  python_version:'3.10'
+    steps:
+      - name: Checkout code  # <-- Must be inside a step with a 'name'
+        uses: actions/checkout@v3
 
--name Install dependencies
-run:|
-  python -m pip install --upgrade pip
-  pip install pycode stlye
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
--name: Lint Python files with Pycodestyle
-run:|
-  python -m unittest discover - v  
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pycodestyle  # Install pycodestyle for linting
+
+      - name: Lint Python files with Pycodestyle
+        run: |
+          pycodestyle .  # Run pycodestyle to lint the code
+
+      - name: Run tests with unittest
+        run: |
+          python -m unittest discover -v # Discover and run tests using unittest
