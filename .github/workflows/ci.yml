@@ -20,4 +20,4 @@ run:|
 
 -name: Lint Python files with Pycodestyle
 run:|
-  python -m unittest discoverd - v  
+  python -m unittest discover - v  
