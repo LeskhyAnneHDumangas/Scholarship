@@ -30,4 +30,4 @@ class TestScholarshipEligibility(unittest.TestCase):
 
     def test_negative_income(self):
         self.assertFalse\
-            (is_eligible_for_scholarship("Income cannot be negative"))
+        (is_eligible_for_scholarship("Income cannot be negative"))
